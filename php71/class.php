@@ -19,20 +19,25 @@ class Rectangulo {
   {
     return $this->ancho;
   }
-  public function calcularPerímetro()
+  public function CalcularPerímetro()
   {
     return ($this->altura * 2) + ($this->ancho * 2);
   }
-  public function calcularArea()
+  public function CalcularArea()
   {
     return $this->altura * $this->ancho;
   }
+  public function MostrarDatos()
+  {
+    echo "Altura: " . $this->getAltura() . "<br>";
+    echo "Ancho: " . $this->getAncho() . "<br>";
+    echo "Perímetro del rectángulo: " . $this->CalcularPerímetro() . "<br>";
+    echo "Área del rectángulo: " . $this->CalcularArea() . "<br>";
+  }
 }
 $rectangulo = new Rectangulo($_POST['h'], $_POST['a']);
-echo "Altura: " . $rectangulo->getAltura() . "<br>";
-echo "Ancho: " . $rectangulo->getAncho() . "<br>";
-echo "Perímetro del rectángulo: " . $rectangulo->calcularPerímetro() . "<br>";
-echo "Área del rectángulo: " . $rectangulo->calcularArea() . "<br>";
+
+$rectangulo->MostrarDatos();
 ?>
 </body>
 </html>
