@@ -1,0 +1,65 @@
+Alan Barbé 5° 4°
+1 CREATE DATABASE TP77
+  CHARACTER SET DEFAULT
+  COLLATE DEFAULT;
+
+
+CREATE TABLE tiendas (
+  idtienda          int NOT NULL PRIMARY KEY,
+  nombre_comercial  varchar(20) NOT NULL,
+  tipo              int NOT NULL,
+  direccion         varchar(30) NOT NULL,
+  codpos            int NOT NULL,
+  poblacion         int NOT NULL,
+  latitud           float(10,8) NOT NULL,
+  longitud          float(10,8) NOT NULL
+) ENGINE = InnoDB;
+
+
+2-a) SELECT 
+  `tiendas`.`nombre_comercial`,
+  `tiendas`.`direccion`
+FROM
+  `tiendas`
+  
+WHERE `tiendas`.`direccion` LIKE "%Castello%"
+
+
+b) SELECT 
+  `tiendas`.`nombre_comercial`,
+  `tiendas`.`codpos`,
+  `tiendas`.`poblacion`
+FROM
+  `tiendas`
+
+
+WHERE `tiendas`.`codpos` = 7600 AND `tiendas`.`poblacion` = 1
+
+
+c) SELECT 
+  `tiendas`.`tipo`,
+  `tiendas`.`nombre_comercial`
+FROM
+  `tiendas`
+WHERE `tiendas`.`tipo` = 1
+
+
+d) SELECT MAX(`tiendas`.`latitud`) as Maximo from `tiendas`
+
+
+e) SELECT MIN(`tiendas`.`longitud`) as Minimo from `tiendas`
+
+
+3-a)UPDATE `tiendas`
+    SET   `tiendas`.`nombre_comercial` ='OCHOA'
+    WHERE  `tiendas`.`nombre_comercial` ='Boston';
+
+
+b) UPDATE `tiendas`
+    SET   `tiendas`.`latitud` = '-38,00001'
+    WHERE  `tiendas`.`nombre_comercial` ='Wallace';
+
+
+c) UPDATE `tiendas`
+    SET   `tiendas`.`nombre_comercial` = 'EEM 22'
+    WHERE  `tiendas`.`nombre_comercial` ='Media 22';
