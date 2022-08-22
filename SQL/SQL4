@@ -1,0 +1,73 @@
+1) CREATE DATABASE TP78
+  CHARACTER SET DEFAULT
+  COLLATE DEFAULT;
+
+
+CREATE TABLE store (
+  id        int NOT NULL PRIMARY KEY,
+  profile   int,
+  name      varchar(30) NOT NULL,
+  lat       float(10,6),
+  lng       float(10,6),
+  id_rubro  int
+) ENGINE = InnoDB;
+
+
+INSERT INTO store (id, profile, name, lat, lng, id_rubro) VALUES
+  (2, 1, 'Banco Nacion', -37.999672, -57.546848, 1),
+  (3, 1, 'Banco Provincia', -37.999317, -57.546547, 1),
+  (4, NULL, 'Astor', -38.000828, -57.542858, 2),
+  (5, NULL, 'AGB', -37.999268, -57.548447, 3),
+  (8, 1, 'atm', -37.998676, -57.552593, NULL),
+  (285071699, NULL, 'Astor', -38.000828, -57.542858, 1),
+  (288366501, 1, 'Banco Nacion', -37.999672, -57.546848, 1),
+  (1236707570, 1, 'Banco Provincia', -37.999317, -57.546547, 1),
+  (1236711896, NULL, 'AGB', -37.999268, -57.548447, 3),
+  (1236940209, NULL, 'atm', -37.998676, -57.552593, NULL);
+
+
+2) a) SELECT 
+  `store`.`id`
+FROM
+  `store`
+  
+WHERE `store`.`id` BETWEEN 99 AND 300000000
+
+
+b) SELECT 
+  `store`.`id` ,
+  `store`.`profile`
+FROM
+  `store`
+  
+WHERE `store`.`profile` BETWEEN 1 AND 3 AND `store`.`id` > 10000
+
+
+c) SELECT 
+  `store`.`id_rubro` ,
+  `store`. `name`
+FROM
+  `store`
+  
+WHERE `store`.`id_rubro` BETWEEN 1 AND 2 AND `store`.`name` LIKE "%Banco%"
+
+
+d) SELECT MAX(`store`.`id`) as Maximo from `store`
+
+
+e) SELECT MIN(`store`.`lat`) as Minimo from `store`
+
+
+3) a) UPDATE `store`
+    SET   `store`.`name` ='Banco de la Nacion Argentina'
+    WHERE  `store`.`name` ='Banco Nacion';
+
+
+b) UPDATE `store`
+    SET   `store`.`name` ='Musical Norte'
+    WHERE  `store`.`name` ='AGB';
+
+
+c) UPDATE `store`
+    SET   `store`.`lng` ='-57.000001'
+    WHERE  `store`.`name` ='Astor';
