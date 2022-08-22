@@ -15,6 +15,10 @@ CREATE TABLE tiendas (
   longitud          float(10,8) NOT NULL
 ) ENGINE = InnoDB;
 
+INSERT INTO tiendas (idtienda, nombre_comercial, tipo, direccion, codpos, poblacion, latitud, longitud) VALUES
+  (7, 'Wallace', 1, 'Calle de Orense, 52', 7600, 1, -38, -57.55532837),
+  (8, 'OCHOA', 1, 'Calle de Fuencarral, 104', 7600, 1, -38.00371933, -57.55173111),
+  (9, 'EEM 22', 1, 'Castello, 109', 7600, 1, 0, -1);
 
 2-a) SELECT 
   `tiendas`.`nombre_comercial`,
